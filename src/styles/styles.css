@@ -1,0 +1,104 @@
+/* fonte importada do https://fonts.google.com/specimen/Poppins?query=pop */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* cores */
+  --body-color: #e4e9f7;
+  --sidebar-color: #fff;
+  --primary-color: #058ac7c9;
+  --primary-color-light: #f6f5ff;
+  --toggle-color: #ddd;
+  --text-color: #707070;
+
+  /* transições  */
+
+  --tran-02: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.4s ease;
+  --tran-05: all 0.5s ease;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--body-color);
+  height: 100vh;
+}
+
+/* CSS reutilizado */
+
+.sidebar .text {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.sidebar .image {
+  min-width: 6rem;
+  display: flex;
+  align-items: center;
+}
+
+/* sidebar  */
+
+.sidebar {
+  position: fixed;
+  background: var(--sidebar-color);
+  top: 0;
+  left: 0;
+  width: 25rem;
+  height: 100%;
+  padding: 1rem 1.4rem;
+}
+
+.sidebar header {
+  position: relative;
+}
+
+.sidebar .image-text img {
+  width: 4rem;
+}
+
+.sidebar header .image-text {
+  display: flex;
+  align-items: center;
+}
+
+header .image-text .header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-text .name {
+  font-weight: 600;
+}
+
+.header-text .profession {
+  margin-top: -0.2rem;
+}
+
+header .toggle {
+  position: absolute;
+  top: 50%;
+  right: -2.5rem;
+  transform: translateY(-50%);
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+  color: var(--sidebar-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
