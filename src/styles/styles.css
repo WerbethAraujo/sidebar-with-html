@@ -32,6 +32,16 @@ html {
 body {
   background: var(--body-color);
   height: 100vh;
+  transition: var(--tran-04);
+}
+
+body.dark {
+  --body-color: #18191a;
+  --sidebar-color: #242526;
+  --primary-color: #3a3b3c;
+  --primary-color-light: #3a3b3c;
+  --toggle-color: #fff;
+  --text-color: #ccc;
 }
 
 /* CSS reutilizado */
@@ -40,6 +50,8 @@ body {
   font-size: 1.6rem;
   font-weight: 500;
   color: var(--text-color);
+  transition: var(--tran-03);
+  white-space: nowrap;
 }
 
 .sidebar .image {
@@ -58,6 +70,20 @@ body {
   width: 25rem;
   height: 100%;
   padding: 1rem 1.4rem;
+  transition: var(--tran-04);
+  z-index: 100;
+}
+
+.sidebar .menu {
+  margin-top: 3rem;
+}
+
+.sidebar.close {
+  width: 8.7rem;
+}
+
+.sidebar.close .text {
+  opacity: 0;
 }
 
 .sidebar li {
@@ -110,9 +136,8 @@ header .image-text .header-text {
 
 header .toggle {
   position: absolute;
-  top: 50%;
+  top: 25%;
   right: -2.5rem;
-  transform: translateY(-50%);
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 50%;
@@ -120,13 +145,22 @@ header .toggle {
   align-items: center;
   justify-content: center;
   background: var(--primary-color);
-  color: var(--sidebar-color);
+  color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
+  transition: var(--tran-04);
+  transform: rotate(180deg);
+  transition: var(--tran-03);
+}
+
+.sidebar.close header .toggle {
+  transform: rotate(0);
 }
 
 .sidebar .search-box {
   background: var(--primary-color-light);
+  border-radius: 0.6rem;
+  cursor: pointer;
 }
 
 .search-box input {
@@ -136,6 +170,7 @@ header .toggle {
   border: none;
   border-radius: 0.6rem;
   background: var(--primary-color-light);
+  color: var(--text-color);
 }
 
 .sidebar li a {
@@ -154,7 +189,7 @@ header .toggle {
 
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text {
-  color: var(--sidebar-color);
+  color: #fff;
 }
 
 .sidebar .menu-bar {
@@ -162,11 +197,15 @@ header .toggle {
   flex-direction: column;
   justify-content: space-between;
   height: calc(100% - 5rem);
+  transition: var(--tran-03);
 }
 
 .menu-bar .mode {
+  position: relative;
   background: var(--primary-color-light);
+  border-radius: 0.6rem;
   cursor: pointer;
+  transition: var(--tran-03);
 }
 
 .menu-bar .mode .moon-sun {
@@ -178,18 +217,30 @@ header .toggle {
 
 .menu-bar .mode i {
   position: absolute;
+  transition: var(--tran-03);
 }
 
 .menu-bar .mode i.sun {
   opacity: 0;
 }
 
+body.dark .menu-bar .mode i.sun {
+  opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon {
+  opacity: 0;
+}
+
 .menu-bar .mode .toggle-switch {
+  position: absolute;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   min-width: 6rem;
+  transition: var(--tran-03);
 }
 
 .toggle-switch .switch {
@@ -198,6 +249,7 @@ header .toggle {
   width: 4.4rem;
   border-radius: 2.5rem;
   background: var(--toggle-color);
+  transition: var(--tran-03);
 }
 
 .switch::before {
@@ -210,4 +262,30 @@ header .toggle {
   left: 0.5rem;
   top: 50%;
   transform: translateY(-50%);
+}
+
+body.dark .switch::before {
+  left: 2.5rem;
+}
+
+.home {
+  position: relative;
+  height: 100vh;
+  width: calc(100% - 25rem);
+  background: var(--body-color);
+  left: 25rem;
+  transition: var(--tran-05);
+}
+
+.home .home-text {
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--text-color);
+
+  padding: 0.8rem 4rem;
+}
+
+.sidebar.close ~ .home {
+  left: 8.7rem;
+  width: calc(100% - 8.7rem);
 }
